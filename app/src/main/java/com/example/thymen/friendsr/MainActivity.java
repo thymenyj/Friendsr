@@ -2,31 +2,56 @@ package com.example.thymen.friendsr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.GridLayout;
+import android.widget.GridView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Friend> friends = new ArrayList<Friend>();
+
+    ArrayList<Friend> friends = new ArrayList<>();
+
+
+//
+//    int id2 = getResources().getIdentifier("cersei", "drawable", getPackageName());
+//    Friend Cersei = new Friend("Cersei", "Girl", id2);
+//
+//    int id3 = getResources().getIdentifier("daenerys", "drawable", getPackageName());
+//    Friend Daenerys = new Friend("Daenerys", "Girl", id3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        friends.add("Ayra", "Girl", 1);
-        friends.add("Cersei", "Girl", 1);
-        friends.add("Daenerys", "Girl", 1);
-        friends.add("Jaime", "Guy", 1);
-        friends.add("Jon", "Guy", 1);
-        friends.add("Jorah", "Guy", 1);
-        friends.add("Margaery", "Girl", 1);
-        friends.add("Melisandre", "Girl", 1);
-        friends.add("Sansa", "Girl", 1);
-        friends.add("Tyrion", "Guy", 1);
+
+        int id = getResources().getIdentifier("arya", "drawable", getPackageName());
+        friends.add(new Friend("Ayra", "Girl", id));
+        int id2 = getResources().getIdentifier("cersei", "drawable", getPackageName());
+        friends.add(new Friend("Cersei", "Girl", id2));
+        int id3 = getResources().getIdentifier("daenerys", "drawable", getPackageName());
+        friends.add(new Friend("Daenerys", "Girl", id3));
+        int id4 = getResources().getIdentifier("jaime", "drawable", getPackageName());
+        friends.add(new Friend("Jaime", "Guy", id4));
+        int id5 = getResources().getIdentifier("jon", "drawable", getPackageName());
+        friends.add(new Friend("Jon", "Guy", id5));
+        int id6 = getResources().getIdentifier("jorah", "drawable", getPackageName());
+        friends.add(new Friend("Jorah", "Guy", id6));
+        int id7 = getResources().getIdentifier("margaery", "drawable", getPackageName());
+        friends.add(new Friend("Margaery", "Girl", id7));
+        int id9 = getResources().getIdentifier("sansa", "drawable", getPackageName());
+        friends.add(new Friend("Sansa", "Girl", id9));
+        int id10 = getResources().getIdentifier("tyrion", "drawable", getPackageName());
+        friends.add(new Friend("Tyrion", "Guy", id10));
 
 
-        for (int i = 0; i < 10; i++) {
-            friends.add(Friend.name, )
-        }
-        getResources().getIdentifier();
+        FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
+        GridView gridView = findViewById(R.id.simpleGrid);
+        gridView.setAdapter(adapter);
     }
 
+    private class GridItemClickListener {
 
+    }
 }
+
+
